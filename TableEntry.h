@@ -17,22 +17,25 @@ class TableEntry {
 	    
 	    TableEntry(std::string key){
 		    this->key = key;
+		    value = 0;
 	    }
 
 	    TableEntry(){
 		    key = " ";
+		    value = 0;
 	    }
 
 	    friend bool operator==(const TableEntry<V> &te1, const TableEntry<V> &te2){
-		
+		    return (te1.key == te2.key);		
 	    }
 
 	    friend bool operator!=(const TableEntry<V> &te1, const TableEntry<V> &te2){
-
+		    return !(te1.key == te2.key);
 	    }
 
 	    friend std::ostream& operator<<(std::ostream &out, const TableEntry<V> &te){
-
+		    out << "Key: " << te.key << ", Value: " << te.value;
+		    return out;
 	    }
 	    // miembros públicos
     
